@@ -61,10 +61,10 @@ class fetching : AppCompatActivity() {
                             val intent = Intent(this@fetching, OrganizationDataList::class.java)
 
                             //put extras
-                            intent.putExtra("organizationId",OrganizationList[position].organizationId)
-                            intent.putExtra("organizationName",OrganizationList[position].organizationName)
-                            intent.putExtra("organizationId",OrganizationList[position].organizationAmount)
-                            intent.putExtra("organizationEmail",OrganizationList[position].organizationDate)
+                            intent.putExtra("organizationId",OrganizationList[position].orggId)
+                            intent.putExtra("organizationName",OrganizationList[position].orgName)
+                            intent.putExtra("organizationId",OrganizationList[position].orgId)
+                            intent.putExtra("organizationEmail",OrganizationList[position].orgEmail)
                             startActivity(intent)
                         }
                     })
