@@ -7,71 +7,69 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.R
+import com.example.myapplication.activities.OrganizationDataList
 import com.example.myapplication.adaptor.OrganizationAdaptor
-import com.example.myapplication.model.OrganizationModel
+import com.example.myapplication.models.OrganizationModel
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.ktx.Firebase
 
 //fetching activity
 class fetching : AppCompatActivity() {
 
-    private lateinit var billRecyclerView: RecyclerView
+    private lateinit var OrganizationRecyclerView: RecyclerView
     private lateinit var tvLoadingData: TextView
-    private lateinit var  billList : ArrayList<OrganizationModel>
+    private lateinit var  OrganizationList : ArrayList<OrganizationModel>
     private lateinit var dbRef: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fetching)
 
-        billRecyclerView=findViewById(R.id.rvBill)
-        billRecyclerView.layoutManager= LinearLayoutManager(this)
-        billRecyclerView.setHasFixedSize(true)
+        OrganizationRecyclerView=findViewById(R.id.rvOrganization)
+        OrganizationRecyclerView.layoutManager= LinearLayoutManager(this)
+        OrganizationRecyclerView.setHasFixedSize(true)
         tvLoadingData = findViewById(R.id.loadingData)
 
-        billList = arrayListOf<OrganizationModel>()
+        OrganizationList = arrayListOf<OrganizationModel>()
 
         getBillsData()
     }
 
     //get bill data
     private fun getBillsData() {
-        billRecyclerView.visibility = View.GONE
+        OrganizationRecyclerView.visibility = View.GONE
         tvLoadingData.visibility = View.VISIBLE
 
         dbRef= FirebaseDatabase.getInstance().getReference("Organization")
 
         dbRef.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-                billList.clear()
+                OrganizationList.clear()
                 if(snapshot.exists()){
-                    for(billsnap in snapshot.children){
-                        val billData = billsnap.getValue(BillModel::class.java)
-                        billList.add(billData!!)
+                    for(organizationsnap in snapshot.children){
+                        val organizationData = organizationsnap.getValue(OrganizationModel::class.java)
+                        OrganizationList.add(organizationData!!)
                     }
-                    val mAdaptor = OrganizationAdaptor(billList)
-                    billRecyclerView.adapter=mAdaptor
+                    val mAdaptor = OrganizationAdaptor(OrganizationList)
+                    OrganizationRecyclerView.adapter=mAdaptor
 
                     mAdaptor.setOnItemClickListner(object :OrganizationAdaptor.onItemClickListner{
                         override fun onItemClick(position: Int) {
 
-                            val intent = Intent(this@activity_fetching, Expenses::class.java)
+                            val intent = Intent(this@fetching, OrganizationDataList::class.java)
 
                             //put extras
-                            intent.putExtra("billId",billList[position].billId)
-                            intent.putExtra("billType",billList[position].billType)
-                            intent.putExtra("billAmount",billList[position].billAmount)
-                            intent.putExtra("billDate",billList[position].billDate)
-                            intent.putExtra("billComment",billList[position].billComment)
+                            intent.putExtra("organizationId",OrganizationList[position].organizationId)
+                            intent.putExtra("organizationName",OrganizationList[position].organizationName)
+                            intent.putExtra("organizationId",OrganizationList[position].organizationAmount)
+                            intent.putExtra("organizationEmail",OrganizationList[position].organizationDate)
                             startActivity(intent)
                         }
                     })
 
-                    billRecyclerView.visibility=View.VISIBLE
+                    OrganizationRecyclerView.visibility=View.VISIBLE
                     tvLoadingData.visibility=View.GONE
                 }
             }

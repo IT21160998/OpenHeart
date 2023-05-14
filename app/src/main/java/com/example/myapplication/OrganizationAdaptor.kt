@@ -5,8 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.R
 import com.example.myapplication.models.OrganizationModel
+import com.example.myapplication.R
 
 //bill adpoter clas
 class OrganizationAdaptor(private val OrganizationList: ArrayList<OrganizationModel>):
@@ -23,13 +23,13 @@ class OrganizationAdaptor(private val OrganizationList: ArrayList<OrganizationMo
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.billdata, parent,false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.organization_data, parent,false)
         return ViewHolder(itemView,mlistner)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val currentBill = OrganizationList[position]
-        holder.tvBillName.text = currentBill.billType
+        val currentOrg = OrganizationList[position]
+        holder.tvorganizationName.text = currentOrg.orgName
     }
 
     override fun getItemCount(): Int {
@@ -37,7 +37,7 @@ class OrganizationAdaptor(private val OrganizationList: ArrayList<OrganizationMo
     }
     class ViewHolder(itemView:View,clickListner:onItemClickListner) : RecyclerView.ViewHolder(itemView) {
 
-        val tvBillName : TextView = itemView.findViewById(R.id.tvBillName)
+        val tvorganizationName : TextView = itemView.findViewById(R.id.tvOrganizationName)
 
         init {
             itemView.setOnClickListener{

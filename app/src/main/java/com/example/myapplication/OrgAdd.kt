@@ -2,16 +2,13 @@ package com.example.myapplication.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract.CommonDataKinds.Email
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.example.myapplication.OrganizationModel
-
+import com.example.myapplication.models.OrganizationModel
 import com.example.myapplication.R
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import java.util.Date
 
 
 //Add organization class
@@ -45,16 +42,16 @@ class OrgAdd : AppCompatActivity() {
 
         //validation
         if(OrgName.isEmpty()){
-            OrgName.error = "Please enter Organization name"
+            orgName.error = "Please enter Organization name"
         } else if(OrgId.isEmpty()){
-            OrgId.error = "Please enter Organization ID"
+            orgId.error = "Please enter Organization ID"
         }else if(OrgId.isEmpty()){
-            OrgEmail.error ="Please enter Email"
+            orgemail.error ="Please enter Email"
         } else {
 
             val orggId = dbRef.push().key!!
 
-            val org =OrganizationModel(orggId,OrgName,OrgId,OrgEmail )
+            val org = OrganizationModel(orggId,OrgName,OrgId,OrgEmail )
 
             //data inserted
             dbRef.child(orggId).setValue(org)
@@ -62,10 +59,9 @@ class OrgAdd : AppCompatActivity() {
                     Toast.makeText(this,"Data inserted Successfully",Toast.LENGTH_LONG
                     ).show()
 
-                    OrgName.text.clear()
-                    OrgId.text.clear()
-                    OrgEmail.text.clear()
-                    OrgPassword.text.clear()
+                    orgName.text.clear()
+                    orgId.text.clear()
+                    orgemail.text.clear()
 
                 }.addOnFailureListener{err ->
                     Toast.makeText(this,"Error $err.get",Toast.LENGTH_LONG).show()

@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.models
 
 data class OrganizationModel(
     var orggId : String? =null,
