@@ -6,6 +6,7 @@ import android.provider.ContactsContract.CommonDataKinds.Email
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.example.myapplication.OrganizationModel
 
 import com.example.myapplication.R
 import com.google.firebase.database.DatabaseReference
@@ -51,12 +52,12 @@ class OrgAdd : AppCompatActivity() {
             OrgEmail.error ="Please enter Email"
         } else {
 
-            val orId = dbRef.push().key!!
+            val orggId = dbRef.push().key!!
 
-            val org = OrganizationModel(orId,,billAmount,billDate,billComment)
+            val org =OrganizationModel(orggId,OrgName,OrgId,OrgEmail )
 
             //data inserted
-            dbRef.child(orId).setValue(Organization)
+            dbRef.child(orggId).setValue(org)
                 .addOnCompleteListener {
                     Toast.makeText(this,"Data inserted Successfully",Toast.LENGTH_LONG
                     ).show()
