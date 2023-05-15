@@ -15,9 +15,9 @@ tools:context=".activities.OrganizationDataList">
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="48dp"
-    android:backgroundTint="#65CDA8"
+    android:backgroundTint="#D6144F"
     android:text="Update"
-    android:textColor="@color/black"
+    android:textColor="@color/white"
     android:textSize="20dp"
     android:textStyle="bold"
     app:layout_constraintEnd_toStartOf="@+id/deletebtn"
@@ -31,7 +31,7 @@ tools:context=".activities.OrganizationDataList">
     android:layout_height="wrap_content"
     android:layout_marginTop="50dp"
     android:text="Delete"
-    android:backgroundTint="#65CDA8"
+    android:backgroundTint="#D6144F"
     android:textColor="@color/black"
     android:textStyle="bold"
     android:textSize="20dp"
@@ -45,6 +45,7 @@ tools:context=".activities.OrganizationDataList">
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -239,5 +240,17 @@ tools:context=".activities.OrganizationDataList">
         </LinearLayout>
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Organization Details"
+        android:textSize="30"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
