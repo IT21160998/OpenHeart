@@ -9,8 +9,21 @@ tools:context=".activities.OrganizationDataList">
 <!-- Update Button -->
 
 
-<!-- Delete Button -->
-<Button
+    <!-- Delete Button -->
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:text="Organization Details"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
     android:id="@+id/updatebtn"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -18,7 +31,7 @@ tools:context=".activities.OrganizationDataList">
     android:backgroundTint="#D6144F"
     android:text="Update"
     android:textColor="@color/white"
-    android:textSize="20dp"
+    android:textSize="15dp"
     android:textStyle="bold"
     app:layout_constraintEnd_toStartOf="@+id/deletebtn"
     app:layout_constraintHorizontal_bias="0.5"
@@ -34,7 +47,7 @@ tools:context=".activities.OrganizationDataList">
     android:backgroundTint="#D6144F"
     android:textColor="@color/white"
     android:textStyle="bold"
-    android:textSize="20dp"
+    android:textSize="15dp"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="0.5"
     app:layout_constraintStart_toEndOf="@+id/updatebtn"
@@ -240,17 +253,5 @@ tools:context=".activities.OrganizationDataList">
         </LinearLayout>
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="Organization Details"
-        android:textSize="30"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

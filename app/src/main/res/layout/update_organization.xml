@@ -5,6 +5,15 @@
     android:orientation="vertical"
     android:padding="10dp">
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:text="Update Organization details" />
+
     <EditText
         android:id="@+id/etOrganizationName"
         android:layout_width="match_parent"
@@ -42,8 +51,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:backgroundTint="#65CDA8"
-        android:textColor="@color/black"
+        android:backgroundTint="#D6144F"
+        android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="20dp"
         android:text="Update Data" />
